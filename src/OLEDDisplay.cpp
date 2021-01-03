@@ -51,6 +51,7 @@ OLEDDisplay::OLEDDisplay() {
 #ifdef OLEDDISPLAY_DOUBLE_BUFFER
 	buffer_back = NULL;
 #endif
+  logBuffer = NULL;
 }
 
 OLEDDisplay::~OLEDDisplay() {
@@ -63,7 +64,6 @@ bool OLEDDisplay::allocateBuffer() {
   logBufferFilled = 0;
   logBufferLine = 0;
   logBufferMaxLines = 0;
-  logBuffer = NULL;
 
   if (!this->connect()) {
     DEBUG_OLEDDISPLAY("[OLEDDISPLAY][init] Can't establish connection to display\n");
